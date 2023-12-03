@@ -2,7 +2,7 @@ library(dplyr)
 
 # Read data
 # Insert csv file directory
- ratings_df <- read.csv("/../Dataset/kindle_data-v2.csv")
+ ratings_df <- read.csv("Dataset/kindle_data-v2.csv")
 
 
 # Create a clean copy of the dataframe
@@ -44,4 +44,6 @@ clean_df <- clean_df %>%
   )
 
  # Save the cleaned dataframe
- save(clean_df, file = "/../../R/clean_df.RData")
+ save(clean_df, file = "R/clean_df.RData")
+
+
