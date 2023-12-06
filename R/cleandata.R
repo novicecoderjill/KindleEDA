@@ -8,17 +8,19 @@ library(dplyr)
 # Create a clean copy of the dataframe
 clean_df <- ratings_df
 
+
 # Replace empty values with NA across all columns
 clean_df <- clean_df %>%
   mutate_all(~ifelse(. == "", NA, .))
 
-# Replace reviews with 0 to NA
-clean_df <- clean_df %>%
-  mutate(reviews = ifelse(reviews == 0, NA, reviews))
+
 
 # Remove rows with NA values
 clean_df <- clean_df %>%
   na.omit()
+
+# check for columns that has NA
+glimpse(clean_df)
 
 # Remove duplicates based on 'asin' column
 clean_df <- clean_df %>%
@@ -44,6 +46,10 @@ clean_df <- clean_df %>%
   )
 
  # Save the cleaned dataframe
- save(clean_df, file = "R/clean_df.RData")
+  save(clean_df, file = "clean_df.RData")
+
+  write.csv(clean_df, "R/clean_data.csv" )
+
+
 
 
